@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent{
+            height: 580px;
+            width: 404px;
+            border: 2px solid #FBFBFA;
+            display: flex;
+            flex-direction: column;
+            margin: 75px 0px 0px 440px;
+            background-color:#FBFBFA;
+            border-radius: 15px;
+            
+        }
+        #first{
+            background-color:rgb(233, 232, 232);
+            border-radius: 15px;
+            height: 30px;
+             width: 79%;
+              /* border: 2px solid lawngreen; */
+             padding: 35px 0px 0px 38px;
+             margin: 53px 0px 50px 18px;
+        }
+        #container{
+            border-radius: 15px;
+            height: 359px;
+            width: 85%;
+            border: 2px solid #FBFBFA;
+            padding: 26px 5px 0px 9px;
+            margin: -27px 0px 2px 18px;
+           display: grid;
+           grid-template-columns: repeat(4,67px);
+           grid-template-rows: repeat(4,80px);
+           gap: 10px;
+           justify-content: space-evenly;
+             
+            
+           
+
+            
+        }
+        #container>div:nth-child(1){
+            background-color:rgb(233, 232, 232);
+            text-align: center;
+            border-radius: 15px ;
+        }
+        #container>div:nth-child(2){
+            background-color:rgb(233, 232, 232);
+            text-align: center;
+            border-radius: 15px ;
+        }
+        #container>div:nth-child(3){
+            background-color:rgb(233, 232, 232);
+            text-align: center;
+            border-radius: 15px;
+        }
+        #container>div:nth-child(4){
+          background-color: black;
+          color: white;
+            text-align: center;
+            border-radius: 15px;
+        }
+        #container>div:nth-child(5){
+            background-color:rgb(233, 232, 232);
+            text-align: center;
+            border-radius: 15px;
+        }
+        #container>div:nth-child(6){
+            background-color:rgb(233, 232, 232);
+            text-align: center;
+            border-radius: 15px;
+        }
+    #container>div:nth-child(7){
+        background-color:rgb(233, 232, 232);
+            text-align: center;
+            border-radius: 15px;
+    
+        }
+        #container>div:nth-child(8){
+            background-color: black;
+          color: white;
+            text-align: center;
+            border-radius: 15px;;
+        }
+        #container>div:nth-child(9){
+            background-color:rgb(233, 232, 232);
+            text-align: center;
+            border-radius: 15px;
+        }
+        #container>div:nth-child(10){
+            background-color:rgb(233, 232, 232);
+            text-align: center;
+            border-radius: 15px;
+        }
+        #container>div:nth-child(11){
+            background-color:rgb(233, 232, 232);
+            text-align: center;
+            border-radius: 15px;
+        }
+        #container>div:nth-child(12){
+            background-color: black;
+          color: white;
+            text-align: center;
+            border-radius: 15px;;
+        }
+        #container>div:nth-child(13){
+            background-color:red;
+            text-align: center;
+            border-radius: 15px;
+        }
+        #container>div:nth-child(14){
+            background-color:rgb(233, 232, 232);
+            text-align: center;
+            border-radius: 15px;
+        }
+        #container>div:nth-child(15){
+            background-color:black;
+            text-align: center;
+            border-radius: 15px;
+            color: white;
+        }
+        #container>div:nth-child(16){
+           background-color: black;
+           text-align: center;
+            border-radius: 15px;
+            color: white;
+        }
+        body>h1{
+            text-align: center;
+            font-size: 63px;
+            color: rgb(82, 82, 143);
+        }
+        </style>
+        <body>
+            <h1>Masai Calculator</h1>
+          
+<div id="parent">
+    <div id="first">0</div>
+    <div id="container">
+     <div>
+        <h2 onclick="one()" id="h1">1</h2>
+
+     </div>
+     <div>
+      <h2  onclick="two()"    id= "h2">2</h2>
+     </div>
+     <div>
+        <h2  onclick="three()"   id="h3">3</h2>
+     </div>
+    <div>
+        <h2  onclick="add()">+</h2>
+
+    </div>
+    <div>
+        <h2 id="h4">4</h2>
+    </div>
+    <div>
+        <h2 id="h5"> 5</h2>
+    </div>
+    <div>
+        <h2 id="h6">6</h2>
+    </div>
+    <div>
+        <h2 onclick="sub()">-</h2>
+    </div>
+    <div>
+        <h2 id="h7">7</h2>
+    </div>
+    <div>
+        <h2 id="h8"> 8</h2>
+
+    </div>
+    <div>
+        <h2 id="h9">9</h2>
+    </div>
+    <div><h2 onclick="mul()">*</h2></div>
+    <div>
+        <h1>c</h1>
+    </div>
+    <div><h2 id="h0">0</h2></div>
+    <div><h2>=</h2></div>
+    <div><h2 onclick="div">/</h2></div>
+    </div>
+    
+</div>
+</body>
+<script>
+    let H1=document.getElementById("h1")
+    let H2=document.getElementById("h2")
+    let H3=document.getElementById("h3")
+    let H4=document.getElementById("h4")
+    let H5=document.getElementById("h5")
+    let H6=document.getElementById("h6")
+    let H7=document.getElementById("h7")
+    let H8=document.getElementById("h8")
+    let H9=document.getElementById("h9")
+    let H0=document.getElementById("h0")
+    function add(){
+        let num1=H1.innerText
+        let num2=H2.innerText
+        let num3=H3.innerText
+        let display=document.getElementById("first")
+        let res=+num1+ +num2+ +num3
+        display.innerText=res
+    }
+    function one(){
+    
+        let num1=H1.innerText
+        let num2=H2.innerText
+        let num3=H3.innerText
+       
+        let display=document.getElementById("first") 
+        display.innerText=num1
+    }
+    function two(){
+    
+        let num1=H1.innerText
+        let num2=H2.innerText
+        let num3=H3.innerText
+        let display=document.getElementById("first")
+        let sum= num1+" "+num2+ " "+num3
+        display.innerText=sum
+    }
+    function three(){
+        let num3=H3.innerText 
+        let display=document.getElementById("first") 
+        display.innerText=num3
+    }
+    </script>
+</html>
