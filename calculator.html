@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<body>
+    <h1 id="display"></h1>
+    <div class="btn">
+        <button>
+            0
+        </button>
+        <button>1
+
+        </button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+    </div>
+    <div class="operator">
+      <button>+</button>
+      <button>*</button>
+
+      <button>/</button> 
+      <button>-</button>
+    </div>
+    <div id="equal">=</div>
+</body>
+<script>
+   let keypad=document.querySelectorAll(".btn > button")
+   let operatorButton=document.querySelectorAll(".operator > button")
+   let heading=document.getElementById("display")
+   let firstNumber="";
+   let secondNumber="";
+   let isFirstNumber=true;
+   let oper="";
+
+   for(i=0;i<keypad.length;i++){
+    keypad[i].addEventListener("click",function(e){
+        if(isFirstNumber== true){
+        firstNumber+=e.target.innerText;
+        heading.innerText=firstNumber
+        }
+        else{
+            secondNumber+=e.target.innerText;
+        heading.innerText=secondNumber
+        }
+    })
+   }
+   for(i=0;i<operatorButton.length;i++){
+
+    operatorButton[i].addEventListener("click",function(){
+        isFirstNumber = false;
+    })
+   }
+</script>
+</html>

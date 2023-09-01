@@ -139,96 +139,134 @@
             <h1>Masai Calculator</h1>
           
 <div id="parent">
-    <div id="first">0</div>
+    <div id="first"></div>
     <div id="container">
      <div>
-        <h2 onclick="one()" id="h1">1</h2>
+        <h2 >1</h2>
 
      </div>
      <div>
-      <h2  onclick="two()"    id= "h2">2</h2>
+      <h2 >2</h2>
      </div>
      <div>
-        <h2  onclick="three()"   id="h3">3</h2>
+        <h2 >3</h2>
      </div>
-    <div>
-        <h2  onclick="add()">+</h2>
+    <div class="oper">
+        <h3 >+</h3>
 
     </div>
     <div>
-        <h2 id="h4">4</h2>
+        <h2 >4</h2>
     </div>
     <div>
-        <h2 id="h5"> 5</h2>
+        <h2 > 5</h2>
     </div>
     <div>
-        <h2 id="h6">6</h2>
+        <h2 >6</h2>
+    </div>
+    <div class="oper">
+        <h3 >-</h3>
     </div>
     <div>
-        <h2 onclick="sub()">-</h2>
+        <h2 >7</h2>
     </div>
     <div>
-        <h2 id="h7">7</h2>
-    </div>
-    <div>
-        <h2 id="h8"> 8</h2>
+        <h2 > 8</h2>
 
     </div>
     <div>
-        <h2 id="h9">9</h2>
+        <h2 >9</h2>
     </div>
-    <div><h2 onclick="mul()">*</h2></div>
+    <div  class="oper">
+        <h3 >*</h3>
+    </div>
     <div>
-        <h1>c</h1>
+        <h1>C</h1>
     </div>
-    <div><h2 id="h0">0</h2></div>
-    <div><h2>=</h2></div>
-    <div><h2 onclick="div">/</h2></div>
+    <div><h2 >0</h2></div>
+    <div id="h4"><h4>=</h4></div>
+    <div class="oper">
+        <h3 >/</h3>
+    </div>
     </div>
     
 </div>
 </body>
 <script>
-    let H1=document.getElementById("h1")
-    let H2=document.getElementById("h2")
-    let H3=document.getElementById("h3")
-    let H4=document.getElementById("h4")
-    let H5=document.getElementById("h5")
-    let H6=document.getElementById("h6")
-    let H7=document.getElementById("h7")
-    let H8=document.getElementById("h8")
-    let H9=document.getElementById("h9")
-    let H0=document.getElementById("h0")
-    function add(){
-        let num1=H1.innerText
-        let num2=H2.innerText
-        let num3=H3.innerText
-        let display=document.getElementById("first")
-        let res=+num1+ +num2+ +num3
-        display.innerText=res
+  let head = document.getElementById("first");
+let firstNumber = "";
+let secondNumber = "";
+let fullExpression = ""; 
+let IsFirstNumber = true;
+let cal = "";
+let ek = document.getElementById("h4");
+let keypad = document.querySelectorAll("#container > div > h2");
+let operators = document.querySelectorAll(".oper > h3");
+let result = "";
+
+for (let i = 0; i < keypad.length; i++) {
+  keypad[i].addEventListener("click", function (e) {
+    if (IsFirstNumber === true) {
+      firstNumber += e.target.innerText;
+      fullExpression += e.target.innerText; 
+      head.innerText = fullExpression;
+    } else {
+      secondNumber += e.target.innerText;
+      fullExpression += e.target.innerText; 
+      head.innerText = fullExpression;
     }
-    function one(){
-    
-        let num1=H1.innerText
-        let num2=H2.innerText
-        let num3=H3.innerText
-       
-        let display=document.getElementById("first") 
-        display.innerText=num1
+  });
+}
+
+for (let i = 0; i < operators.length; i++) {
+  operators[i].addEventListener("click", function (e) {
+    if (result !== "") {
+      
+      firstNumber = result;
+      fullExpression = result; 
+      result = ""; 
     }
-    function two(){
-    
-        let num1=H1.innerText
-        let num2=H2.innerText
-        let num3=H3.innerText
-        let display=document.getElementById("first")
-        let sum= num1+" "+num2+ " "+num3
-        display.innerText=sum
-    }
-    function three(){
-        let num3=H3.innerText 
-        let display=document.getElementById("first") 
-        display.innerText=num3
-    }
-    </script>
+    IsFirstNumber = false;
+    cal = e.target.innerText; 
+    fullExpression += cal; 
+    head.innerText = fullExpression;
+  });
+}
+
+function sum(firstNumber, secondNumber, cal) {
+  switch (cal) {
+    case "+":
+      return Number(firstNumber) + Number(secondNumber);
+    case "-":
+      return Number(firstNumber) - Number(secondNumber);
+    case "*":
+      return Number(firstNumber) * Number(secondNumber);
+    case "/":
+      return Number(firstNumber) / Number(secondNumber);
+  }
+}
+
+ek.addEventListener("click", function () {
+  result = sum(firstNumber, secondNumber, cal);
+  fullExpression =result; 
+  head.innerText = fullExpression;
+});
+
+
+
+let clearButton = document.querySelector("#container > div > h1");
+clearButton.addEventListener("click", function () {
+    head.innerText = ""; 
+  firstNumber = ""; 
+  secondNumber = ""; 
+  fullExpression = ""; 
+  IsFirstNumber = true; 
+  cal = ""; 
+  result = "";
+});
+
+
+
+
+        </script>
 </html>
