@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"  id="myInput">
+    <button id="myButton"  onclick="show()">Submit</button>
+    <h1 id="display" >Enter value :</h1>
+</body>
+<script>
+    function show(){
+        let inp=document.getElementById("myInput").value 
+        let disp=document.getElementById("display")
+         alert(inp)
+         disp.innerText=inp 
+
+
+    }
+</script>
+</html>
